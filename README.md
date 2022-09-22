@@ -1,6 +1,6 @@
 # 1조 - OTT 비교 사이트 
 
-> ### FrontEnd - 김민석, 김승연, 최재욱 (Stack - 미정)
+> ### FrontEnd - 김민석, 김승연, 최재욱 (Stack - HTML, CSS, JavaScript)
 > ### BackEnd - 김경영, 이진영 (Stack - Node.js, mongoDB or mySQL)
 <br>
 
