@@ -17,6 +17,9 @@ app.listen(port, () => {
 app.get('/',(req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+app.get('/search',(req,res) => {
+    res.send('서브 페이지 테스트입니다.');
+});
 app.use('/',(req, res) => {
     fs.readFile('./asset/image/Top-Gun.jpeg', (err, data) =>{
         res.writeHead(200);
@@ -25,6 +28,3 @@ app.use('/',(req, res) => {
     });
 });
 
-app.get('/search',(req,res) => {
-    res.send('서브 페이지 테스트입니다.');
-});
