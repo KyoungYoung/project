@@ -56,8 +56,8 @@ iframe{
 
 .recommendations-container{
     width: 100%;
-    display: flex;
     flex-wrap: wrap;
+    display: flex;
 }
 
 .movie p {
