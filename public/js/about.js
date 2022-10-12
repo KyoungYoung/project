@@ -89,7 +89,7 @@ fetch(`${movie_detail_http}${movie_id}/recommendations?` + new URLSearchParams({
     let container = document.querySelector('.recommendations-container');
     
     // 추천 영화 개수
-    for(let i = 0; i < 19; i++){
+    for(let i = 0; i < 16; i++){
         if(data.results[i].backdrop_path == null){
             i++;
         }

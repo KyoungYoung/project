@@ -33,6 +33,6 @@ app.listen(port, () => {
     console.log(`서버가 실행됩니다. http://localhost:${port}`); //터미널에 뜨는 내용
 });
 
-// 새 터미널에 입력해주면 외부에서 서버 연결 가능(lt --port 3000 --subdomain otts --print-requests)
+// 새 터미널에 입력해주면 외부에서 서버 연결 가능(lt --port 3000 --subdomain honeybee --print-requests)
 
 
