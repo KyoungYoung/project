@@ -9,7 +9,7 @@
   "name": "project",
   "description": "> ### FrontEnd - 김민석, 김승연, 최재욱 (Stack - HTML, CSS, JavaScript)\r > ### BackEnd - 김경영, 이진영 (Stack - Node.js, mongoDB or mySQL)\r <br>",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
