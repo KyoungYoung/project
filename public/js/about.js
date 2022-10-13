@@ -17,6 +17,7 @@ const setupMovieInfo = (data) => {
     const des = document.querySelector('.des');
     const title = document.querySelector('title');
     const backdrop = document.querySelector('.movie-info');
+    const movieReview = document.querySelector('.movie-review');
 
     //제목
     title.innerHTML = movieName.innerHTML = data.title;
@@ -78,6 +79,16 @@ fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
         picture-in-picture" allowfullscreen></iframe>
         `;
     }
+})
+
+//리뷰
+fetch(`${movie_detail_http}${movie_id}/review?` + new URLSearchParams({
+    api_key:api_key
+}))
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+    let movieReview = document.querySelector('.movie-review');
 })
 
 // 추천
