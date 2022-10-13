@@ -25,7 +25,8 @@ body{
 }
 
 .logo{
-    height: 60%;
+    width: 150px;
+    height: 60px;
 }
 
 .join-box{
@@ -71,6 +72,30 @@ body{
     text-transform: capitalize;
     font-weight: 900;
     font-size: 50px;
+}
+.search-bar{
+    width: 1000px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar input{
+    width: 600px;
+    height: 30px;
+    font-size: 18px;
+    border:none;
+    border-bottom: 1px black solid;
+}
+.search-bar button{
+    font-size: 18px;
+    border: none;
+    background-color: skyblue;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .info{
