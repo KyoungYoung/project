@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="navbar">
-        <img src="image/logo.png" class="logo" alt="로고">
+        <a href="http://localhost:3000/">
+            <img src="image/CapstoneLogo.png" class="logo" alt="로고" >
+        </a>
         <div class="join-box">
             <p class="join-msg">OTT tv shows & movies </p>
             <button class="btn join-btn">join now</button>
@@ -19,6 +21,12 @@
 
     <!-- main section -->
     <header class="main">
+        <div class="search-bar">
+            <label>
+                <input type="text" name="query" value="" placeholder="영화, TV 프로그램, 인물 검색">
+                <button type="submit">검색</button>
+            </label>
+        </div>
         <h1 class="heading">Movie List</h1>
         <p class="info"> Choose the genre you want! </p>
 
