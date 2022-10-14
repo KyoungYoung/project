@@ -12,3 +12,7 @@ let movie_genres_http = "https://api.themoviedb.org/3/discover/movie?";
 // 영화 세부 정보
 let movie_detail_http = "https://api.themoviedb.org/3/movie";
 
+// ott 플랫폼
+let movie_ott_http = "https://api.themoviedb.org/3/watch/providers/movie?";
+
+

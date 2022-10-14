@@ -18,6 +18,7 @@ const setupMovieInfo = (data) => {
     const title = document.querySelector('title');
     const backdrop = document.querySelector('.movie-info');
     const movieReview = document.querySelector('.movie-review');
+    const otts = document.querySelector('.otts');
 
     //제목
     title.innerHTML = movieName.innerHTML = data.title;
@@ -59,6 +60,30 @@ fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
     }
 })
 
+// ott 플랫폼 
+fetch(`${movie_ott_http}` + new URLSearchParams({
+    api_key: api_key
+}))
+.then(res => res.json())
+.then(data => {
+    console.log(data);
+    const ott = document.querySelector('.otts');
+    // data.results => 배열들 provider_name : ott 플랫폼 이름, logo_path : 플랫폼 이미지 \, provider_id : 플랫폼 id
+    console.log(data.results[3].provider_name);
+    console.log(data.results[3].provider_id);
+    console.log(data.results[3].logo_path);
+
+    ott.innerHTML += `
+    <span>${data.results[3].provider_name}\n <img src="./image/${data.results[3].logo_path} / "></span>
+    <span>${data.results[55].provider_name} / </span>
+    <span>${data.results[198].provider_name} / </span>
+    <span>${data.results[210].provider_name} / </span>
+    <span>${data.results[99].provider_name} / </span>
+    
+    `
+
+
+})
 
 // 예고편
 fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
@@ -82,14 +107,14 @@ fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
 })
 
 //리뷰
-fetch(`${movie_detail_http}${movie_id}/review?` + new URLSearchParams({
-    api_key:api_key
-}))
-.then(res => res.json())
-.then(data => {
-    console.log(data);
-    let movieReview = document.querySelector('.movie-review');
-})
+// fetch(`${movie_detail_http}${movie_id}/review?` + new URLSearchParams({
+//     api_key:api_key
+// }))
+// .then(res => res.json())
+// .then(data => {
+//     console.log(data);
+//     let movieReview = document.querySelector('.movie-review');
+// })
 
 // 추천
 fetch(`${movie_detail_http}${movie_id}/recommendations?` + new URLSearchParams({
