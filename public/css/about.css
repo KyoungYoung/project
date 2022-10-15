@@ -11,10 +11,10 @@
     background: rgb(24, 24, 24);
     background: linear-gradient(90deg, rgba(24,24,24,1), rgba(24,24,24,0)
     100%);
-    padding: 5vw;
+    padding: 6vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
     color: #fff;
 
 }
@@ -24,36 +24,47 @@
 }
 
 .movie-name{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 500;
 }
 
 .genres{
     opacity: 0.6;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 .des{
     width: 70%;
     line-height: 20px;
+    margin-top: 80px;
+    
+}
+.des p{
+    font-size: 25px;
+    font-weight: 500;
     margin-bottom: 30px;
+    
 }
 
+.actor h1{
+    color: aliceblue;
+}
 .starting{
     display: flex;
     color: #fff;
+    justify-content: flex-start;
 }
 
 .starting::-webkit-scrollbar{
     display: none;
 }
 .castImg{
-    padding: 10px;
+    padding: 10px 15px;
     display: flex;
     flex-direction: column;
 }
 .starting img{
-    width: 138px;
-    height: 175px;
+    width: 148px;
+    height: 185px;
     margin-bottom: 10px;
 }
 .starting span{
@@ -83,9 +94,10 @@
 .otts img{
     width: 40px;
     height: 40px;
-    margin: 10px 10px 0px;
+    margin: 10px 0px 0px 10px;
     align-items: center;
 }
+.actor,
 .trailer-container,
 .recommendations{
     color: #fff;

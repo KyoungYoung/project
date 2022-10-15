@@ -1,5 +1,6 @@
  // api키
 let api_key = "d516745898f6293a295ed20361b456e5";
+let kor = "&language=ko&page=1&region=KR";
 
 // 이미지
 let img_url = "https://image.tmdb.org/t/p/w500";
