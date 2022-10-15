@@ -1,4 +1,4 @@
-// 슬라이더 이펙트
+// 슬라이더 생성
 
 const setupScrolling = () => {
     const container = [...document.querySelectorAll('.movie-container')];
@@ -17,4 +17,6 @@ const setupScrolling = () => {
             item.scrollLeft -= containerWidth;
         })
     })
+
 }
+

@@ -1,6 +1,6 @@
 .movie-info{
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh);
     margin-top: 60px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,10 +37,55 @@
     line-height: 20px;
     margin-bottom: 30px;
 }
-.starring span{
+
+.starting{
+    display: flex;
+    color: #fff;
+}
+
+.starting::-webkit-scrollbar{
+    display: none;
+}
+.castImg{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.starting img{
+    width: 138px;
+    height: 175px;
+    margin-bottom: 10px;
+}
+.starting span{
     opacity: 0.6;
 }
 
+.otts{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.ottStream{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.ottBuy{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.ottRent{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.otts img{
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px 0px;
+    align-items: center;
+}
 .trailer-container,
 .recommendations{
     color: #fff;
