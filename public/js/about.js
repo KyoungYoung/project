@@ -1,6 +1,7 @@
 let movie_id = location.pathname;
 
 
+// fetch를 이용하여 외부 api 가져오기
 // 영화 세부 정보 가져오기
 
 fetch(`${movie_detail_http}${movie_id}?` + new URLSearchParams({
@@ -18,7 +19,8 @@ const setupMovieInfo = (data) => {
     const title = document.querySelector('title');
     const backdrop = document.querySelector('.movie-info');
     const movieReview = document.querySelector('.movie-review');
-    const otts = document.querySelector('.otts');
+    // const otts = document.querySelector('.otts');
+    // const actor = document.querySelector('.starting');
 
     //제목
     title.innerHTML = movieName.innerHTML = data.title;
@@ -27,12 +29,12 @@ const setupMovieInfo = (data) => {
     for(let i = 0; i < data.genres.length; i++){
         genres.innerHTML += data.genres[i].name + formatString(i, data.genres.length);
     }
-
+    
     // 성인
     if(data.adult == true){
         genres.innerHTML += ' / +18';
     }
-
+    
     if(data.backdrop_path == null){
         data.backdrop_path = data.poster_path;
     }
@@ -46,44 +48,53 @@ const formatString = (currentIndex, maxIndex) => {
     return (currentIndex == maxIndex - 1) ? '' :', ';
 }
 
+// ott 플랫폼 
+fetch(`${movie_detail_http}${movie_id}/watch/providers?` + new URLSearchParams({
+    api_key: api_key
+}))
+.then(res => res.json())
+.then(data => {
+    const ott = document.querySelector('.otts');
+    const watch = document.querySelector('.ottStream');
+    const buy = document.querySelector('.ottBuy');
+    const rent = document.querySelector('.ottRent');
+    // KR 한국 찾아서 스트리밍,구매,렌트할 수 있는 플랫폼 찾아서 변수에 할당 
+    let ottWatch = data.results.KR.flatrate;
+    let ottBuy = data.results.KR.buy;
+    let ottRent = data.results.KR.rent;
+    for(i in ottWatch){
+        let ottLogoStream = ottWatch[i].logo_path;
+        watch.innerHTML += `<div class="ottStream"><img src="${original_img_url}${ottLogoStream}"></div>
+        `
+    }
+    for(let j = 0; j < ottBuy.length; j++){
+        let ottLogoBuy = ottBuy[j].logo_path;
+        buy.innerHTML += ` <div class="ottBuy"><img src="${original_img_url}${ottLogoBuy}"></div>`
+    }
+    for(k in ottRent){
+        let ottLogoRent = ottRent[k].logo_path;
+        rent.innerHTML += `<div class="ottRent"><img src="${original_img_url}${ottLogoRent}"</div>`
+    }
+
+})
+
 // 출연진
-// fetch를 이용하여 외부 api 가져오기
 fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
     api_key: api_key
 }))
 .then(res => res.json())
 .then(data => {
-    const cast = document.querySelector('.starring');
-    // 5명만 필요함
-    for(let i = 0; i < 5; i++){
-        cast.innerHTML += data.cast[i].name + formatString(i,5);
+    const cast = document.querySelector('.starting');
+    for(let i = 0; i < 10; i++){
+        let castImage = data.cast[i].profile_path
+        let castName = data.cast[i].name 
+        cast.innerHTML += `<div class="castImg">
+        <img src="${original_img_url}${castImage}"><span>${castName}</span>
+        </div>`
     }
-})
-
-// ott 플랫폼 
-fetch(`${movie_ott_http}` + new URLSearchParams({
-    api_key: api_key
-}))
-.then(res => res.json())
-.then(data => {
-    console.log(data);
-    const ott = document.querySelector('.otts');
-    // data.results => 배열들 provider_name : ott 플랫폼 이름, logo_path : 플랫폼 이미지 \, provider_id : 플랫폼 id
-    console.log(data.results[3].provider_name);
-    console.log(data.results[3].provider_id);
-    console.log(data.results[3].logo_path);
-
-    ott.innerHTML += `
-    <span>${data.results[3].provider_name}\n <img src="./image/${data.results[3].logo_path} / "></span>
-    <span>${data.results[55].provider_name} / </span>
-    <span>${data.results[198].provider_name} / </span>
-    <span>${data.results[210].provider_name} / </span>
-    <span>${data.results[99].provider_name} / </span>
-    
-    `
-
 
 })
+
 
 // 예고편
 fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
@@ -91,7 +102,6 @@ fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
 }))
 .then(res => res.json())
 .then(data => {
-    console.log(data);
     let trailerContainer = document.querySelector('.trailer-container');
     
     // 최대 클립은 4개로 정하는 조건
