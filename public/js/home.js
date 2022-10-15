@@ -8,10 +8,10 @@ const main = document.querySelector('.main');
 // 장르
 fetch(genres_list_http + new URLSearchParams({
     api_key: api_key
-}))
+}) + kor)
 .then(res => res.json())
 .then(data => {
-    data.genres.forEach(item => {
+    data.genres.forEach((item) => {
         // 함수 생성
         fetchMoviesListByGenres(item.id, item.name);
     })
@@ -26,11 +26,11 @@ const fetchMoviesListByGenres = (id, genres) => {
         with_genres: id,
         // 페이지 수 Math객체를 이용해서 3 페이지 구현
         page: Math.floor(Math.random() * 3) + 1
-    }))
+    }) + kor)
     .then(res => res.json())
     .then(data => {
         // 함수 생성
-        makeCategoryElement(`${genres}_movies`, data.results);
+        makeCategoryElement(`${genres}`, data.results);
     })
     .catch(err => console.log(err));
 }
@@ -62,7 +62,7 @@ const makeCards = (id, data) => {
         'poster_path'가 표시되고 어떤 경우에는 TMDB가 아무 것도 제공하지 않는다. 그래서 이미지를 얻고 있는지 상태를 확인해야한다.*/
         if(item.backdrop_path == null){
             item.backdrop_path = item.poster_path;
-            // 영화 카드를 만드는 것을 방지하기 위해 루프에서 아무것도 반환하지 않으면.
+            // 루프에서 아무것도 반환하지 않으면.
             if(item.backdrop_path == null){
                 return;
             }

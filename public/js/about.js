@@ -6,7 +6,7 @@ let movie_id = location.pathname;
 
 fetch(`${movie_detail_http}${movie_id}?` + new URLSearchParams({
     api_key: api_key
-}))
+}) + kor)
 .then(res => res.json())
 .then(data => {
     setupMovieInfo(data);
@@ -39,7 +39,7 @@ const setupMovieInfo = (data) => {
         data.backdrop_path = data.poster_path;
     }
     // 줄거리
-    des.innerHTML = data.overview.substring(0,200) + '...';
+    des.innerHTML = `<p>개요</p>${data.overview.substring(0,400)} `;
     // 영화 원본 사진 갖고오기
     backdrop.style.backgroundImage = `url(${original_img_url}${data.backdrop_path})`;
 }
@@ -51,39 +51,53 @@ const formatString = (currentIndex, maxIndex) => {
 // ott 플랫폼 
 fetch(`${movie_detail_http}${movie_id}/watch/providers?` + new URLSearchParams({
     api_key: api_key
-}))
+}) + kor)
 .then(res => res.json())
 .then(data => {
+    console.log(data.results.KR);
     const ott = document.querySelector('.otts');
     const watch = document.querySelector('.ottStream');
     const buy = document.querySelector('.ottBuy');
     const rent = document.querySelector('.ottRent');
+
     // KR 한국 찾아서 스트리밍,구매,렌트할 수 있는 플랫폼 찾아서 변수에 할당 
     let ottWatch = data.results.KR.flatrate;
     let ottBuy = data.results.KR.buy;
     let ottRent = data.results.KR.rent;
+
+    if(ottWatch != null){
+        watch.innerHTML += `스트리밍 : `
+    }
     for(i in ottWatch){
         let ottLogoStream = ottWatch[i].logo_path;
-        watch.innerHTML += `<div class="ottStream"><img src="${original_img_url}${ottLogoStream}"></div>
-        `
+        watch.innerHTML += `<div class="ottStream"><img src="${original_img_url}${ottLogoStream}"></div>`
     }
-    for(let j = 0; j < ottBuy.length; j++){
+
+    if(ottBuy != null){
+        buy.innerHTML += `구매 : `
+    }
+    for(j in ottBuy){
         let ottLogoBuy = ottBuy[j].logo_path;
         buy.innerHTML += ` <div class="ottBuy"><img src="${original_img_url}${ottLogoBuy}"></div>`
+    }
+
+    if(ottRent != null){
+        rent.innerHTML += `대여 : `
     }
     for(k in ottRent){
         let ottLogoRent = ottRent[k].logo_path;
         rent.innerHTML += `<div class="ottRent"><img src="${original_img_url}${ottLogoRent}"</div>`
     }
-
 })
 
 // 출연진
 fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
-    api_key: api_key
-}))
+    api_key: api_key,
+    page: Math.floor(Math.random() * 2) + 1
+}) + kor)
 .then(res => res.json())
 .then(data => {
+    console.log(data.cast);
     const cast = document.querySelector('.starting');
     for(let i = 0; i < 10; i++){
         let castImage = data.cast[i].profile_path
@@ -129,13 +143,13 @@ fetch(`${movie_detail_http}${movie_id}/videos?` + new URLSearchParams({
 // 추천
 fetch(`${movie_detail_http}${movie_id}/recommendations?` + new URLSearchParams({
     api_key:api_key
-}))
+}) + kor)
 .then(res => res.json())
 .then(data => {
     let container = document.querySelector('.recommendations-container');
     
     // 추천 영화 개수
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < 12; i++){
         if(data.results[i].backdrop_path == null){
             i++;
         }
