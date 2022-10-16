@@ -74,7 +74,10 @@ const makeCards = (id, data) => {
            이미지를 가져오기 위해 'img_url' key를 생성하고 여기에 해당 변수를 전달.*/
         movieContainer.innerHTML += `
         <div class="movie" onclick="location.href = '/${item.id}'">
-                    <img src="${img_url}${item.backdrop_path}" alt="" >
+                    <div class="movieImg-wrapper">
+                        <img class="movie-img" src="${img_url}${item.backdrop_path}" alt="" >
+                        <p class="hidden-title">${item.title}</p>
+                    </div>
                     <p class="movie-title">${item.title}</p>
                 </div>
         `;
