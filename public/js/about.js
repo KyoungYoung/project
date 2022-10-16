@@ -93,20 +93,30 @@ fetch(`${movie_detail_http}${movie_id}/watch/providers?` + new URLSearchParams({
 // 출연진
 fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
     api_key: api_key,
-    page: Math.floor(Math.random() * 2) + 1
+    page: Math.floor(Math.random() * 3) + 1
 }) + kor)
 .then(res => res.json())
 .then(data => {
-    console.log(data.cast);
-    const cast = document.querySelector('.starting');
-    for(let i = 0; i < 10; i++){
+    const cast = document.querySelector('.actor');
+    // <button class="pre-btn"><img src="image/right.png" alt=""></button>
+    // <button class="nxt-btn"><img src="image/left.png" alt=""></button>
+    cast.innerHTML += `
+    <div class="cast-list"></div>
+    `
+
+    const list = document.querySelector('.cast-list');
+    for(let i = 0; i < data.cast.length; i++){
         let castImage = data.cast[i].profile_path
         let castName = data.cast[i].name 
-        cast.innerHTML += `<div class="castImg">
-        <img src="${original_img_url}${castImage}"><span>${castName}</span>
+        list.innerHTML += `
+        <div class="cast-container">
+        <img src="${original_img_url}${castImage}">
+        <span>${castName}</span>
         </div>`
     }
-
+//     if(j == data.cast.length - 1){
+//        setTimeout(() => {castScrolling();},100);
+//    }
 })
 
 
