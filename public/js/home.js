@@ -5,6 +5,7 @@ const main = document.querySelector('.main');
 // html에서 home.js 앞에 api.js를 추가했어서 api 변수에 접근 가능
 // URLSearchParams를 사용하여 링크 뒤에 매개변수 추가
 
+
 // 장르
 fetch(genres_list_http + new URLSearchParams({
     api_key: api_key
@@ -29,6 +30,8 @@ const fetchMoviesListByGenres = (id, genres) => {
     }) + kor)
     .then(res => res.json())
     .then(data => {
+        console.log(data.results);
+        // console.log(data.results);
         // 함수 생성
         makeCategoryElement(`${genres}`, data.results);
     })
