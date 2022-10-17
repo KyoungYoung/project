@@ -100,8 +100,8 @@
     align-items: center;
 }
 .otts img{
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     margin: 10px 0px 0px 10px;
     align-items: center;
 }
@@ -117,20 +117,24 @@
 }
 
 .cast-list::-webkit-scrollbar{
-    width: 10px;
+    height: 10px;
 }
 
 .cast-list::-webkit-scrollbar-thumb{
-    background-color: black;
-    border-radius: 10px;
+    width: 20%;
+    background-color: #34465e;
+    box-shadow: inset 0px 0px 5px white;
+    border-radius: 5px;
 }
 .cast-list::-webkit-scrollbar-track{
-    background-color: bisque;
+    background: rgba(52, 86, 134, 0.2);
+    border-radius: 5px;
 }
-.cast-list::-webkit-scrollbar-button{
+/*.cast-list::-webkit-scrollbar-button{
     display: block;
     background-color: azure;
-}
+    border-radius: 5px;
+}*/
 
 
 
@@ -144,8 +148,8 @@
 }
 
 .cast-container img{
-    width: 163px;
-    height: 200px;
+    width: 148px;
+    height: 185px;
     margin-bottom: 20px;
 }
 .heading{

@@ -114,6 +114,7 @@ fetch(`${movie_detail_http}${movie_id}/credits?` + new URLSearchParams({
         <span>${castName}</span>
         </div>`
     }
+
 //     if(j == data.cast.length - 1){
 //        setTimeout(() => {castScrolling();},100);
 //    }
