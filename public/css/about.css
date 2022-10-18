@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
 }
 .movie-detail{
-    width: 50%;
+    width: 55%;
     height: 100%;
     background: rgb(24, 24, 24);
     background: linear-gradient(90deg, rgba(24,24,24,1), rgba(24,24,24,0)
@@ -19,7 +19,9 @@
 
 }
 
-
+.movie-detial-container{
+    margin-top: 60px;
+}
 .movie-name{
     font-size: 40px;
     font-weight: 500;
@@ -27,12 +29,12 @@
 
 .genres{
     opacity: 0.6;
-    margin: 20px 0;
+    margin-top: 10px;
 }
 .des{
     width: 70%;
     line-height: 20px;
-    margin-top: 80px;
+    margin-top: 50px;
     
 }
 .des p{
