@@ -175,12 +175,17 @@ body{
     opacity: 0;
     transition: all ease 1s 0s;
 }
-.movieImg-wrapper > img:hover {
+.movieImg-wrapper > .movie-img:hover {
     filter: brightness(0.3);
     transform: scale(1.3);
 }
 .movieImg-wrapper img:hover ~ .hidden-title{
     opacity: 1;
+}
+.ottIcon > img{
+    object-fit:fill;
+    width: 50px;
+    height: 50px;
 }
 
 .movie > p{
