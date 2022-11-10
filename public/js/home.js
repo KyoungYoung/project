@@ -12,7 +12,9 @@ fetch(genres_list_http + new URLSearchParams({
 }) + kor)
 .then(res => res.json())
 .then(data => {
+    console.log(data);
     data.genres.forEach((item) => {
+        console.log(item);
         // 함수 생성
         fetchMoviesListByGenres(item.id, item.name);
     })
@@ -30,8 +32,7 @@ const fetchMoviesListByGenres = (id, genres) => {
     }) + kor)
     .then(res => res.json())
     .then(data => {
-        console.log(data.results);
-        // console.log(data.results);
+        console.log(data);
         // 함수 생성
         makeCategoryElement(`${genres}`, data.results);
     })
