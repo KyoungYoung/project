@@ -12,7 +12,7 @@ const GAME_COLS = 10;
 
 // variables
 let score = 0; // 점수
-let duration = 500; // 내려가는 속도
+let duration = 800; // 내려가는 속도
 let downInterval; // 
 let tempMovingItem; // 무빙을 실질적으로 실행하기 전에 잠깐 담아두는 용도
 
