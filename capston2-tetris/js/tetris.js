@@ -177,6 +177,11 @@ function dropBlock(){
 function showGameOverText(){
     gameText.style.display = "flex"
 }
+
+function pause(){
+    clearInterval(downInterval);
+} // 게임 일시정지(작업중)
+
 // event handling
 
 
@@ -196,6 +201,14 @@ document.addEventListener("keydown", e=>{
             break;
         case 32:
             dropBlock();
+            break;
+        case 27:
+            if(pause() === true){
+                downInterval = setInterval(()=>{
+                    moveBlock('top', 1)
+                },duration)
+            };
+            break;
         default:
             break;
     }
