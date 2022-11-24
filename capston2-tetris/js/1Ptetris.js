@@ -15,7 +15,7 @@ let score = 0; // 점수
 let duration = 800; // 내려가는 속도
 let downInterval; // 
 let tempMovingItem; // 무빙을 실질적으로 실행하기 전에 잠깐 담아두는 용도
-
+let nextMovingItem = null;
 
 const movingItem ={ // 다음 블럭의 타입과 좌표 정보를 갖고 있는 변수
     type:"", 
@@ -28,7 +28,7 @@ init()
 
 // functions
 function init(){
-    tempMovingItem = {...movingItem}; // ... 사용하면 값만 가져와서 넣음 나중에 변경이 되어도 tempMovingItem은 변하지 않음
+    //tempMovingItem = {...movingItem}; // ... 사용하면 값만 가져와서 넣음 나중에 변경이 되어도 tempMovingItem은 변하지 않음
     for(let i = 0; i < GAME_ROWS; i++){ // 가로 10칸짜리 블록 세로 방향으로 20번 만들기
         prependNewLine()
     }
@@ -50,7 +50,6 @@ function prependNewLine(){
 }
 
 function renderBlocks(moveType=""){
-    console.log(tempMovingItem)
     const {type, direction, top, left} = tempMovingItem;
     const movingBlocks = document.querySelectorAll(".moving");
     movingBlocks.forEach(moving=>{
@@ -117,6 +116,8 @@ function checkMatch(){
             scoreDisplay.innerText = score;
         }
     })
+    tempMovingItem = nextMovingItem
+    nextMovingItem = null
     generateNewBlock()
 }
 function generateNewBlock(){
@@ -132,9 +133,25 @@ function generateNewBlock(){
     movingItem.left = 3;
     movingItem.direction = 0;
     tempMovingItem = {...movingItem}
+    console.log(tempMovingItem)
+    console.log(nextMovingItem)
+    if(nextMovingItem == null){
+        makeNewBlock()
+    }
     renderBlocks();
 }
 
+function makeNewBlock(){
+    const blockArray = Object.entries(BLOCKS);
+    const randomInex = Math.floor(Math.random() * blockArray.length);
+    movingItem.type =blockArray[randomInex][0];
+    movingItem.top = 0;
+    movingItem.left = 3;
+    movingItem.direction = 0;
+    nextMovingItem = {...movingItem}
+    console.log(nextMovingItem)
+    showNextBlock()
+}
 function checkEmpty(target){
     if(!target || target.classList.contains("seized")){
         return false;
@@ -157,7 +174,7 @@ function dropBlock(){
     clearInterval(downInterval);
     downInterval = setInterval(()=>{
         moveBlock("top", 1)
-    }, 10)
+    }, 100)
 }
 
 function showGameOverText(){
@@ -193,3 +210,7 @@ restartButton.addEventListener("click",()=>{
     scoreDisplay.innerText = 0; // 다시 시작 버튼 눌렀을 때 스코어 0으로 초기화
     init()
 })
+
+function showNextBlock() {
+    $("#divNextImg").html(`<img src = "/capston2-tetris/img/${nextMovingItem.type}.png">`);
+}
