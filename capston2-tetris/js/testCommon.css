@@ -1,0 +1,32 @@
+* {
+    font-family: 'NeoDungGeunMo';
+    background-color: darkblue;
+    color: white;
+}
+
+html {
+    font-size: 10px;
+}
+
+.wrap {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: fit-content;
+}
+
+.main-contents {
+    padding: 1vw;
+}
+
+.side-contents {
+    padding: 1vw;
+    font-size: 1.6rem;
+}
+
+.main-board {
+    border: 2px solid white;
+}
+
+.next-board {
+    border: 2px solid white;
+}
