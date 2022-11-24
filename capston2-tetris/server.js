@@ -31,7 +31,7 @@ app.post('/add',(req,res)=>{
             console.log('저장완료');
             db.collection('counter').updateOne({name: '게시물갯수'},{$inc: {totalPost:1}}, (err,result)=>{
                 if(err){return console.log(err);}
-            }) 
+            })
         });
 
 
@@ -53,6 +53,30 @@ app.get('/write',(req,res)=>{
     res.sendFile(__dirname + '/write.html')
 });
 
-app.delete('/delete',(req,res)=>{
+// 삭제
+app.delete('/delete',(req,res) => {
     console.log(req.body);
+    req.body._id = parseInt(req.body._id);
+
+    db.collection('post').deleteOne(req.body,(err,result) => {
+        console.log('삭제완료');
+        res.status(200).send('성공했습니다.');
+    })
 })
+
+app.get('/detail/:id',(req,res) => {
+    db.collection('post').findOne({_id : parseInt(req.params.id)},(err,result)=>{
+        console.log(result);
+        res.render('detail.ejs',{ data : result})
+    })
+})
+
+app.use('/public',express.static('public'));
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session');
+
+app.use(session({secret:'code', resave : true, saveUninitialized: false}));
+app.use(passport.initialize());
+app.use(passport.session());
+

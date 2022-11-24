@@ -6,43 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/main.css">
+
 </head>
 <body>
-    <h2>로고?</h2>
+    <div class="container mt-4">
 
-    <h3 class="text-center">랭킹 순위</h3>
-    <div class="container">
-        <ul class="list-group">
-            <% for(let i = 0; i < posts.length; i++){ %>
-                <li class="list-group-item">
-                    <!-- <p>번호 : <%= posts[i]._id %></p> -->
-                    <h4>닉네임 : <%= posts[i].name %></h4>
-                    <h4>점수 : <%= posts[i].point %></h4>
-                    <button class="delete" data-id="<%= posts[i]._id %>">삭제</button>
-                </li>
-                <% } %>
-            </ul>
+        <h4 class="text-center">유저 정보</h4>
+        
+        <div class="card" style="width: 100%;">
+            <div class="card-body">
+                <h4 class="card-title"><%= data.name %></h4>
+                <h4 class="card-subtitle mb-2 text-muted"><%= data.point %></h4>
+                <p class="card-text">내 소감평</p>
+                <a href="#" class="card-link">코멘트 남기기</a>
+            </div>
         </div>
-
-
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
-        $('.delete').click((e) => {
-            const number = e.target.dataset.id
-            const press = $(this);
-            $.ajax({
-                method:'DELETE',
-                url:'/delete',
-                data:{_id : number},
-            }).done((result) => {
-                console.log('성공')
-                press.parent('li').fadeOut();
-            }).fail((a,b,c) => {
-                
-            });
-        });
-    </script>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
