@@ -12,7 +12,8 @@ const GAME_COLS = 10;
 
 // variables
 let score = 0; // 점수
-let duration = 500; // 내려가는 속도
+let levelstack = 0;
+let duration = 1200; // 내려가는 속도
 let downInterval; // 
 let tempMovingItem; // 무빙을 실질적으로 실행하기 전에 잠깐 담아두는 용도
 
@@ -50,7 +51,7 @@ function prependNewLine(){
 }
 
 function renderBlocks(moveType=""){
-    console.log(tempMovingItem)
+    // console.log(tempMovingItem);
     const {type, direction, top, left} = tempMovingItem;
     const movingBlocks = document.querySelectorAll(".moving");
     movingBlocks.forEach(moving=>{
@@ -89,6 +90,9 @@ function renderBlocks(moveType=""){
     movingItem.left = left;
     movingItem.top = top;
     movingItem.direction = direction;
+    if(levelstack > 11) {
+        speedUp();
+    }
 }
 
 function seizeBlock(){
@@ -114,6 +118,7 @@ function checkMatch(){
             child.remove();
             prependNewLine();
             score++;
+            levelstack++;
             scoreDisplay.innerText = score;
         }
     })
@@ -133,6 +138,15 @@ function generateNewBlock(){
     movingItem.direction = 0;
     tempMovingItem = {...movingItem}
     renderBlocks();
+    console.log(levelstack);
+    console.log(duration);
+}
+
+function speedUp() {
+    if(duration > 200) {
+        duration = duration - 100;
+        levelstack = 0;
+    } 
 }
 
 function checkEmpty(target){
@@ -163,6 +177,11 @@ function dropBlock(){
 function showGameOverText(){
     gameText.style.display = "flex"
 }
+
+function pause(){
+    clearInterval(downInterval);
+} // 게임 일시정지(작업중)
+
 // event handling
 
 
@@ -182,6 +201,14 @@ document.addEventListener("keydown", e=>{
             break;
         case 32:
             dropBlock();
+            break;
+        case 27:
+            if(pause() === true){
+                downInterval = setInterval(()=>{
+                    moveBlock('top', 1)
+                },duration)
+            };
+            break;
         default:
             break;
     }
