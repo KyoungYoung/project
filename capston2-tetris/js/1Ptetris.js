@@ -12,7 +12,7 @@ const GAME_COLS = 10;
 
 // variables
 let score = 0; // 점수
-let duration = 800; // 내려가는 속도
+let duration = 500; // 내려가는 속도
 let downInterval; // 
 let tempMovingItem; // 무빙을 실질적으로 실행하기 전에 잠깐 담아두는 용도
 let nextMovingItem = null;
@@ -28,7 +28,7 @@ init()
 
 // functions
 function init(){
-    tempMovingItem = {...movingItem}; // ... 사용하면 값만 가져와서 넣음 나중에 변경이 되어도 tempMovingItem은 변하지 않음
+    //tempMovingItem = {...movingItem}; // ... 사용하면 값만 가져와서 넣음 나중에 변경이 되어도 tempMovingItem은 변하지 않음
     for(let i = 0; i < GAME_ROWS; i++){ // 가로 10칸짜리 블록 세로 방향으로 20번 만들기
         prependNewLine()
     }
@@ -67,13 +67,9 @@ function renderBlocks(moveType=""){
         // const xxx = 조건 ? 참일 경우 : 거짓일 경우
         const target = playground.childNodes[y] ? playground.childNodes[y].childNodes[0].childNodes[x] : null;
         const isAvailable = checkEmpty(target);
-        
         if(isAvailable){
-            console.log(tempMovingItem)
-            console.log(moveType)
             target.classList.add(type, "moving")
         }
- 
         else{
             tempMovingItem = {... movingItem}
             if(moveType === 'retry'){
@@ -89,7 +85,6 @@ function renderBlocks(moveType=""){
             return true;
         }
     }); // tree의 0번째 인덱스 다 갖고옴
-    movingItem.type = type;
     movingItem.left = left;
     movingItem.top = top;
     movingItem.direction = direction;
@@ -102,6 +97,7 @@ function seizeBlock(){
         moving.classList.add("seized");
     })
     checkMatch()
+    
 }
 
 function checkMatch(){
@@ -120,6 +116,8 @@ function checkMatch(){
             scoreDisplay.innerText = score;
         }
     })
+    tempMovingItem = nextMovingItem
+    nextMovingItem = null
     generateNewBlock()
 }
 function generateNewBlock(){
@@ -127,18 +125,16 @@ function generateNewBlock(){
     downInterval = setInterval(()=>{
         moveBlock('top', 1)
     },duration)
-    tempMovingItem = nextMovingItem
-    nextMovingItem = null
 
     const blockArray = Object.entries(BLOCKS);
     const randomInex = Math.floor(Math.random() * blockArray.length);
-    if(tempMovingItem == null){
-        movingItem.type =blockArray[randomInex][0];
-        movingItem.top = 0;
-        movingItem.left = 3;
-        movingItem.direction = 0;
-        tempMovingItem = {...movingItem}
-    }
+    movingItem.type =blockArray[randomInex][0];
+    movingItem.top = 0;
+    movingItem.left = 3;
+    movingItem.direction = 0;
+    tempMovingItem = {...movingItem}
+    console.log(tempMovingItem)
+    console.log(nextMovingItem)
     if(nextMovingItem == null){
         makeNewBlock()
     }
@@ -153,7 +149,7 @@ function makeNewBlock(){
     movingItem.left = 3;
     movingItem.direction = 0;
     nextMovingItem = {...movingItem}
-    
+    console.log(nextMovingItem)
     showNextBlock()
 }
 function checkEmpty(target){
@@ -216,5 +212,5 @@ restartButton.addEventListener("click",()=>{
 })
 
 function showNextBlock() {
-    $("#divNextImg").html(`<img src = "/img/${nextMovingItem.type}.png">`);
+    $("#divNextImg").html(`<img src = "/capston2-tetris/img/${nextMovingItem.type}.png">`);
 }

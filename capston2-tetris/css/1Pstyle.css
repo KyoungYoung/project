@@ -9,7 +9,7 @@ ul{
 body {
     background-color: #99ccff;
     overflow: hidden;
-    background-image: url('/img/interactive2.png');
+    background-image: url('/capston2-tetris/img/interactive2.png');
 }
 .game-Text{
     display: none;
@@ -38,14 +38,9 @@ body {
     margin-bottom: 2rem;
 }
 
-#divNextImg{
-
-}
-
 /* playground의 ul에 줌 */
 .playground{
     border: 1px;
-    display: flex;
 }
 .playground > ul{
     border: 1px solid #333;
@@ -75,9 +70,6 @@ body {
 }
 .zee{
     background: #ff4f00;
-}
-.cvzee{
-    background: purple;
 }
 .eleft{
     background: #00b50d;
