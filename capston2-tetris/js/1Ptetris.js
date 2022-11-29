@@ -212,5 +212,5 @@ restartButton.addEventListener("click",()=>{
 })
 
 function showNextBlock() {
-    $("#divNextImg").html(`<img src = "/capston2-tetris/img/${nextMovingItem.type}.png">`);
+    $("#divNextImg").html(`<img src = "../img/${nextMovingItem.type}.png">`);
 }

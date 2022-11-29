@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>테트리스</title>
-    <link rel="stylesheet" href="/capston2-tetris/css/1Pstyle.css">
+    <link rel="stylesheet" href="../css/1Pstyle.css">
 </head>
 <body>
     <div class="wrapper">
@@ -13,7 +13,9 @@
             <span>게임종료</span>
             <button>다시 시작</button>
         </div>
-        <div class="score">0</div>
+        <form action="../add" method="POST">
+            <div class="score">0</div>
+        </form>
         <div class="playground">
             <ul></ul>
         </div>
