@@ -46,8 +46,19 @@ app.get('/list',(req,res)=>{
     });
 });
 
+app.use(express.static('public/css'));
+app.use(express.static('public/img'));
+app.use(express.static('public/js'));
+app.use(express.static('public/audio_src'));
+
 app.get('/',(req,res)=>{
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/Lobby.html')
+});
+app.get('/1P-game',(req,res)=>{
+    res.sendFile(__dirname + '/1Pindex.html')
+});
+app.get('/2P-game',(req,res)=>{
+    res.sendFile(__dirname + '/2Pindex.html')
 });
 app.get('/write',(req,res)=>{
     res.sendFile(__dirname + '/write.html')
@@ -71,7 +82,6 @@ app.get('/detail/:id',(req,res) => {
     })
 })
 
-app.use('/public',express.static('public'));
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css">
-    <link rel="stylesheet" href="Lobby.css">
+    <link rel="stylesheet" href="/Lobby.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 </head>
 <body>
@@ -19,14 +19,14 @@
             <h1>Tetris</h1>
             <div class="button_box">
                 <button class="start_btn">S T A R T</button>
-                <button class="single_btn">1 P</button>
-                <button class="multi_btn">2 P</button>
+                <button class="single_btn" onclick="location.href='/1P-game'">1 P</button>
+                <button class="multi_btn" onclick="location.href='/2P-game'">2 P</button>
             </div>
             <div class="button_box">
                 <button class="guide_btn">How To Play</button>
             </div>
             <div class="button_box">
-                <button class="ranking_btn">Ranking</button>
+                <button class="ranking_btn" >Ranking</button>
             </div>
             <div class="guide_popup">
                 <div>How to play?
@@ -64,6 +64,6 @@
         </div>
     </div>
     
-    <script src="Lobby.js"></script>
+    <script src="/Lobby.js"></script>
 </body>
 </html>

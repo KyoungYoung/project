@@ -125,7 +125,7 @@ const generateDrops = () => {
 setInterval(generateDrops, 100)
 
 var sound = new Howl({
-    src: ['audio_src/plum.mp3'],
+    src: ['/plum.mp3'],
     volume: 0.5,
     autoplay: true,
     loop: true,

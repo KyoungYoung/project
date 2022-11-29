@@ -8,8 +8,8 @@ body {
     width: 100%;
     height: 100vh;
     background-image:
-    url(img_src/interactive1.png),
-    url(img_src/interactive2.png);
+    url(/interactive1.png),
+    url(/interactive2.png);
     background-repeat: no-repeat;
     background-position: center;
     background-position: 50% 50%;
@@ -83,7 +83,7 @@ h1 {
     width: 83px;
     height: 83px;
 
-    background-image: url(img_src/block1.png);
+    background-image: url(/block1.png);
 }
 .pophead { font-size: 33px; color: coral; }
 .rank_popup, .guide_popup {
