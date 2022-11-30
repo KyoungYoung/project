@@ -3,7 +3,7 @@ import BLOCKS from "./blocks.js";
 const playground = document.querySelector(".Secondplayground > ul");
 const gameText = document.querySelector(".game-Text");
 const scoreDisplay = document.querySelector(".Secondscore");
-const restartButton = document.querySelector(".game-Text > button");
+const restartButton = document.querySelector(".game-Text .restart");
 
 // Setting
 const GAME_ROWS = 20;

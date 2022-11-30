@@ -3,7 +3,8 @@ import BLOCKS from "./blocks.js";
 const playground = document.querySelector(".playground > ul");
 const gameText = document.querySelector(".game-Text");
 const scoreDisplay = document.querySelector(".score");
-const restartButton = document.querySelector(".game-Text > button");
+const restartButton = document.querySelector(".game-Text .restart");
+
 
 // Setting
 const GAME_ROWS = 20;
@@ -210,7 +211,13 @@ restartButton.addEventListener("click",()=>{
     scoreDisplay.innerText = 0; // 다시 시작 버튼 눌렀을 때 스코어 0으로 초기화
     init()
 })
+ranking.addEventListener('click',()=>{
+    let name = prompt('이름을 입력해주세요')
+})
 
 function showNextBlock() {
     $("#divNextImg").html(`<img src = "../img/${nextMovingItem.type}.png">`);
 }
+
+
+
