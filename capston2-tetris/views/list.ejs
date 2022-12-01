@@ -20,13 +20,15 @@
                     <button class="delete" data-id="<%= posts[i]._id %>">삭제</button>
                 </li>
                 <% } %>
+                
             </ul>
         </div>
-
-
-
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script>
+        
+        
+       
+        
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
         $('.delete').click((e) => {
             const number = e.target.dataset.id
             const press = $(this);

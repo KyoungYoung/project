@@ -60,10 +60,13 @@ app.get('/write',(req,res)=>{
 app.get('/list',(req,res)=>{
     // 모든 데이터 보여주기
     db.collection('post').find().toArray((err,result)=>{
+        result.sort((a,b)=>{ 
+            return b.point - a.point
+        }) 
         console.log(result);
         res.render('list.ejs',{posts : result});
     });
-});
+}); 
 // 삭제
 app.delete('/delete',(req,res) => {
     console.log(req.body);
