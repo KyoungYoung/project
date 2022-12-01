@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    background-color: #99ccff;
+    overflow: hidden;
+    touch-action: none;
+}
+#tetris {
+    width: 100%;
+    height: 100vh;
+    background-image:
+    url(/interactive1.png),
+    url(/interactive2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+}
+h1 {
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    border-bottom: 0.5rem;
+    border-right: 0.5rem;
+    border-color: black;
+    font-size: 120px;
+    text-shadow: 4px 4px 4px grey;
+}
+.main {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.button_box {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 60%;
+    left: 20%;
+}
+.start_btn, .guide_btn, .ranking_btn, .single_btn, .multi_btn {
+    width: 25rem;
+    text-decoration: none;
+
+    margin-top: 3rem;
+    padding: 2rem;
+    border: none;
+    border-radius: 10vh;
+
+    background-color: coral;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    text-shadow: 3px 3px 3px grey;
+    color: #fff;
+    cursor: pointer;
+}
+.single_btn, .multi_btn {
+    position: absolute;
+    visibility: hidden;
+    border: solid 0.5rem whitesmoke;
+}
+.single_btn {
+    background-color: pink;
+    left: -35%;
+}
+.multi_btn {
+    background-color: dodgerblue;
+    left: 35%;
+}
+.single_btn:hover, .multi_btn:hover {
+    filter:saturate(400%);
+    color: black;
+    border: 0;
+    border-bottom: solid 1.5rem white;
+}
+.drop {
+    position: fixed;
+    top: -1vh;
+    font-size: 3rem;
+    transform: translateY(0);
+    animation: fall 3s linear forwards;
+    z-index: -1;
+
+    width: 83px;
+    height: 83px;
+
+    background-image: url(/block1.png);
+}
+.pophead { font-size: 25px; color: coral; }
+.rank_popup, .guide_popup {
+    display: none;
+    flex-direction: column;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 3rem;
+    padding: 3rem;
+    background: rgba(255,255,255,0.4);
+    width: 250rem;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+    max-width: 80%;
+    min-height: 5vh;
+
+    font-family: 'NeoDunggeunmo';
+    font-size: 18px;
+    text-shadow: 2px 2px 2px grey;
+    transform:translate(-50%, -50%);
+    transition: 200ms ease-in-out;
+    animation: popup 1s;
+}
+.rank_popup > div, .guide_popup > div {
+    justify-content: space-between;
+}
+.closeRank_btn, .closeGuide_btn {
+    position: fixed;
+    right: 2rem;
+    top: 1rem;
+    height: 4.5rem;
+    background: none;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    font-family: 'NeoDunggeunmo';
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px grey;
+}
+.line {
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    height: 0.5rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+}
+@keyframes fall {
+    to {
+        transform: translateY(101vh);
+    }
+}
+@keyframes popup {
+    from {
+        opacity: 0;
+    }
+    to { 
+        opacity: 1;
+    }
+}
