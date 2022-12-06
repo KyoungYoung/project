@@ -24,6 +24,7 @@ h1 {
     font-size: 120px;
     text-shadow: 4px 4px 4px grey;
 }
+
 .main {
     position: absolute;
     top: 47%;
@@ -109,6 +110,7 @@ h1 {
     transition: 200ms ease-in-out;
     animation: popup 1s;
 }
+
 .rank_popup > div, .guide_popup > div {
     justify-content: space-between;
 }

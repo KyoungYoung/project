@@ -192,3 +192,12 @@ restartButton.addEventListener("click",()=>{
     init()
 })
 
+var sound = new Howl({
+    src: ['/plum.mp3'],
+    volume: 0.5,
+    autoplay: true,
+    loop: true,
+    onend : () => {
+    console.log('Finished!');
+    }
+});
