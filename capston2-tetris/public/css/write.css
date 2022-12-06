@@ -73,7 +73,7 @@ h1 {
 }
 .main {
     position: absolute;
-    top: 30%;
+    top: 24%;
     left: 50%;
     transform: translate(-50%, -50%);
     
@@ -141,3 +141,21 @@ span{
     color: #fff;
 }
 
+.overlay {
+    width: 100%;
+    height: 100%;
+}
+
+/* .drop {
+    position: fixed;
+    top: -1vh;
+    font-size: 3rem;
+    transform: translateY(0);
+    animation: fall 3s linear forwards;
+    z-index: -1;
+
+    width: 83px;
+    height: 83px;
+
+    background-image: url(/block1.png);
+} */
