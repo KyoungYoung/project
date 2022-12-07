@@ -11,15 +11,16 @@
     <div class="wrapper">
         <div class="game-Text">
             <span>게임종료</span>
-            <button class="restart">다시 시작</button>
-            <button class="ranking" onclick="location.href='/write'">랭킹 남기기</button>
+            <button>다시 시작</button>
         </div>
+        <form action="../add" method="POST">
             <div class="score">0</div>
+        </form>
         <div class="playground">
             <ul></ul>
         </div>
-        <div id="divNextImg"></div>
+        <div id="divNextImg1"></div>
     </div>
-    <script src="/tetris.js" type="module"></script>
+    <script src="/1PtetrisUpdate.js" type="module"></script>
 </body>
 </html>
