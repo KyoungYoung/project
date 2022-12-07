@@ -16,12 +16,12 @@
 })();
 
 
-// var sound = new Howl({
-//     src: ['/plum.mp3'],
-//     volume: 0.5,
-//     autoplay: true,
-//     loop: true,
-//     onend : () => {
-//     console.log('Finished!');
-//     }
-// });
+var sound = new Howl({
+    src: ['/plum.mp3'],
+    volume: 0.3,
+    autoplay: true,
+    loop: true,
+    onend : () => {
+    console.log('Finished!');
+    }
+});

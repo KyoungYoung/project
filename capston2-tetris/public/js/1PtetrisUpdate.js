@@ -222,3 +222,14 @@ restartButton.addEventListener("click",()=>{
 function showNextBlock() {
     $("#divNextImg1").html(`<img src = "/${nextMovingItem.type}.png">`);
 }
+
+var sound = new Howl({
+    src: ['/plum.mp3'],
+    volume: 0.5,
+    autoplay: true,
+    loop: true,
+    onend : () => {
+    console.log('Finished!');
+    }
+});
+sound.play();
