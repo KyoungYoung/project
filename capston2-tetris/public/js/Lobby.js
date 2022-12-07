@@ -98,8 +98,8 @@ overlay.addEventListener("click", () => {
     mp_btn.style.visibility = "hidden";
 });
 
-const emojis = ["img_src/block1.png", "img_src/block2.png", "img_src/block3.png",
- "img_src/block4.png","img_src/block5.png","img_src/block6.png","img_src/block7.png","img_src/block8.png","img_src/block9.png"];
+const emojis = ["/block1.png", "/block2.png", "/block3.png",
+ "/block4.png","/block5.png","/block6.png","/block7.png","/block8.png","/block9.png"];
 
 const generateDrops = () => {
     const drop = document.createElement("div");

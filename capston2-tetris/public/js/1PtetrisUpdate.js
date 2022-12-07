@@ -94,9 +94,6 @@ function renderBlocks(moveType=""){
     movingItem.left = left;
     movingItem.top = top;
     movingItem.direction = direction;
-    console.log(duration);
-    console.log(levelstack);
-    speedUp();
 }
 
 function seizeBlock(){
@@ -186,15 +183,10 @@ function dropBlock(){
     }, 4)
 }
 
-function speedUp() {
-    if(levelstack > 11) {
-        duration = duration - 160;
-        levelstack = 0;
-    }
-}
-
 function showGameOverText(){
     gameText.style.display = "flex"
+    divNextImg1.style.zIndex = "-1"
+    divNextImg2.style.zIndex = "-1"
 }
 // event handling
 

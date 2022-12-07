@@ -32,38 +32,41 @@
                 </a>
             </div>
             <button class="closeRank_btn" onclick="location.href='/'">X</button>
-            <form action="/add" method="POST">
-                <p>원하는 닉네임과 게임 점수를 입력해주세요</p>
-                <ul class="login_box">
-                    <li>
-                        <!-- <span>
-                            <label>닉네임</label>
-                        </span> -->
-                        <input type="text" class="form-control" name="nickname" placeholder="닉네임">
-                    </li>
-                    <li>
-                        <!-- <span>
-                            <label>내점수</label>   
-                        </span> -->
-                        <input type="text" class="form-control" name="rankScore" placeholder="나의 점수">
-                    </li>
-                    
-                    <li class="rank_submit">
-                        <button type="submit" class="btn_submit">등록하기</button>
+            <div>
+
+                <form action="/add" method="POST">
+                    <p>원하는 닉네임과 게임 점수를 입력해주세요</p>
+                    <ul class="login_box">
                         <li>
-                        </ul>
+                            <!-- <span>
+                                <label>닉네임</label>
+                            </span> -->
+                            <input type="text" class="form-control" name="nickname" placeholder="닉네임">
+                        </li>
+                        <li>
+                            <!-- <span>
+                                <label>내점수</label>   
+                            </span> -->
+                            <input type="text" class="form-control" name="rankScore" placeholder="나의 점수">
+                        </li>
                         
-                        <!-- <div class="form-group">
-                            <label>닉네임</label>
-                            <input type="text" class="form-control" name="nickname">
-                            <br>
-                            <label>내점수</label>
-                            <input type="text" class="form-control" name="rankScore">
-                        </div> -->
+                        <li class="rank_submit">
+                            <button type="submit" class="btn_submit">등록하기</button>
+                            <li>
+                            </ul>
+                            
+                            <!-- <div class="form-group">
+                                <label>닉네임</label>
+                                <input type="text" class="form-control" name="nickname">
+                                <br>
+                                <label>내점수</label>
+                                <input type="text" class="form-control" name="rankScore">
+                            </div> -->
+                            
+                            <!-- <button type="submit" class="btn btn-outline-secondary" style="margin-top: 30px;">전송</button> -->
+                        </form>
+                    </div>
                         
-                        <!-- <button type="submit" class="btn btn-outline-secondary" style="margin-top: 30px;">전송</button> -->
-            </form>
-        
     </div>
       
     <script src="/write.js"></script>
