@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 ul{
     list-style: none;
 }
@@ -12,7 +13,7 @@ body {
     background-image: url('/interactive2.png');
 }
 .wrapper{
-    display: flex;
+    display: inline;
 }
 .game-Text{
     display: none;
@@ -27,7 +28,6 @@ body {
     top: 0;
     color: #fff;
     font-size: 50px;
-    
 }
 .game-Text > button{
     padding: 0.5rem 1rem;
@@ -35,29 +35,38 @@ body {
     background: salmon;
     border: none;
     cursor:pointer;
-    margin-top: 10px;
-    margin-bottom: 15px;
 }
 .score{
     text-align: center;
     font-size: 36px;
     margin-bottom: 2rem;
+    margin-top: 3rem;
 }
 .Secondscore{
     text-align: center;
     font-size: 36px;
     margin-bottom: 2rem;
+    margin-top: 3rem;
 }
 
 .player1{
     float: left;
-    margin: auto;
+    margin-left: 12%;
 }
 .player2{
     float: right;
-    margin: auto;
+    margin-right: 19%;
 }
 
+#divNextImg1 {
+    position: absolute;
+    padding-left: 272px;
+}
+
+#divNextImg2 {
+    position: absolute;
+    padding-left: 272px;
+}
 
 /* playground의 ul에 줌 */
 .playground{
