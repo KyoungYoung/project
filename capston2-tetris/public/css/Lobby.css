@@ -14,6 +14,9 @@ body {
     background-position: center;
     background-position: 50% 50%;
 }
+li{
+    list-style: none;
+}
 h1 {
     color: #fff;
     font-family: 'Press Start 2P', cursive;
@@ -91,8 +94,11 @@ h1 {
     display: none;
     flex-direction: column;
     position:absolute;
+    width: 50%; 
+    height: 70%;
     top: 50%;
     left: 50%;
+    overflow-y: auto;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.5);
     border-radius: 3rem;
@@ -101,14 +107,32 @@ h1 {
     width: 450rem;
     box-shadow: 0 25px 45px rgba(0,0,0,0.1);
     max-width: 100%;
-    min-height: 30vh;
-
+    min-height: 20vh;
     font-family: 'NeoDunggeunmo';
     font-size: 35px;
     text-shadow: 2px 2px 2px grey;
     transform:translate(-50%, -50%);
     transition: 200ms ease-in-out;
     animation: popup 1s;
+}
+
+.rank_popup::-webkit-scrollbar{
+    width: 15px;
+}
+.guide_popup::-webkit-scrollbar{
+    width: 15px;
+}
+.rank_popup::-webkit-scrollbar-thumb{
+    height: 10%;
+    background-color: #34465e;
+    box-shadow: inset 0px 0px 5px white;
+    border-radius: 50px;
+}
+.guide_popup::-webkit-scrollbar-thumb{
+    height: 10%;
+    background-color: #34465e;
+    box-shadow: inset 0px 0px 5px white;
+    border-radius: 50px;
 }
 
 .rank_popup > div, .guide_popup > div {

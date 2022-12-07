@@ -59,8 +59,8 @@
             <div class="rank_popup">
                 Ranking
                 <button class="closeRank_btn">X</button>
-                <div class="line"></div>
                 <div class="container" class="pophead">
+                    <div class="line"></div>
                     <ul class="list-group">
                         <% for(let i = 0; i < posts.length; i++){ %>
                             <li class="list-group-item">
@@ -72,14 +72,14 @@
                             <% } %>
                             
                         </ul>
+                        <div class="line"></div>
                     </div>
-                    <div class="line"></div>
             </div>
         </div>
     </div>
     
     <script src="/Lobby.js"></script>
-    <script>
+    <!-- <script>
         $('.delete').click((e) => {
             const number = e.target.dataset.id
             const press = $(this);
@@ -94,6 +94,6 @@
                 
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>

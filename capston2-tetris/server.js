@@ -8,11 +8,12 @@ app.use(bodyParser.urlencoded({extends : true}));
 app.set('views',__dirname + '/views')
 app.set('view engine', 'ejs');
 // mongoDB 연결
+
 let db;
 const MongoClient = require('mongodb').MongoClient;
 
 
-MongoClient.connect('mongodb+srv://admin:admin1234@cluster0.5tqish3.mongodb.net/?retryWrites=true&w=majority',
+MongoClient.connect('mongodb+srv://admin:admin1234@cluster0.5tqish3.mongodb.net/game?retryWrites=true&w=majority',
 (err,client)=>{
     if(err) return console.log(err);
     db = client.db('game');
@@ -25,13 +26,6 @@ MongoClient.connect('mongodb+srv://admin:admin1234@cluster0.5tqish3.mongodb.net/
 
 // 데이터 전송
 app.post('/add',(req,res)=>{
-    db.collection('post').find().toArray((err,result)=>{
-        result.sort((a,b)=>{ 
-            return b.point - a.point
-        }) 
-        console.log(result);
-        res.render('Lobby.ejs',{posts : result});
-    });
     db.collection('counter').findOne({name: '게시물갯수'},(err,result)=>{
         console.log(result.totalPost);
         let totalCount = result.totalPost;
@@ -42,8 +36,13 @@ app.post('/add',(req,res)=>{
                 if(err){return console.log(err);}
             })
         });
-        
-
+    });
+    db.collection('post').find().toArray((err,result)=>{
+        result.sort((a,b)=>{ 
+            return b.point - a.point
+        }) 
+        console.log(result);
+        res.render('Lobby.ejs',{posts : result});
     });
 });
 
@@ -83,15 +82,15 @@ app.get('/write',(req,res)=>{
 //     });
 // }); 
 // 삭제
-app.delete('/delete',(req,res) => {
-    console.log(req.body);
-    req.body._id = parseInt(req.body._id);
+// app.delete('/delete',(req,res) => {
+//     console.log(req.body);
+//     req.body._id = parseInt(req.body._id);
 
-    db.collection('post').deleteOne(req.body,(err,result) => {
-        console.log('삭제완료');
-        res.status(200).send('성공했습니다.');
-    })
-})
+//     db.collection('post').deleteOne(req.body,(err,result) => {
+//         console.log('삭제완료');
+//         res.status(200).send('성공했습니다.');
+//     })
+// })
 
 
 
