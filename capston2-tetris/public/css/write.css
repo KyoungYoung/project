@@ -16,7 +16,7 @@ a{
     text-decoration: none;
     color: #000;
 }
-ul,h1,h2,h3,h4,h5,h6{
+ul{
     margin: 0;
     padding: 0;
 }
@@ -27,25 +27,10 @@ button{
     background-color: transparent;
     cursor: pointer;
 }
-table{
-    border-spacing: 0;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-fieldset{
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-legend{
-    display: none;
-}
-
 form{
-    margin-top: 70px;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
     width: 700px;
     padding: 30px;
@@ -72,9 +57,10 @@ h1 {
     font-size: 120px;
     text-shadow: 4px 4px 4px grey;
 }
+
 .main {
     position: absolute;
-    top: 24%;
+    top: 22%;
     left: 50%;
     transform: translate(-50%, -50%);
     
@@ -148,21 +134,20 @@ span{
 }
 .closeRank_btn{
     position: fixed;
-    right: 40rem;
-    top: 23.5rem;
-    height: 50rem;
+    right: 2rem;
+    top: 1rem;
+    height: 5rem;
     background: none;
     background-color: rgba(0,0,0,0.5);
     color: #fff;
-    border-radius: 0.8rem;
-    padding: 10px 10px;
-    width: 50px;
-    height: 50px;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
     border: none;
     outline: none;
     cursor: pointer;
     font-family: 'NeoDunggeunmo';
-    font-size: 2rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px grey;
     z-index: 1;
 }
 /* .drop {

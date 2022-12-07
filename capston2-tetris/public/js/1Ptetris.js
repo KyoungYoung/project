@@ -216,7 +216,7 @@ ranking.addEventListener('click',()=>{
 })
 
 function showNextBlock() {
-    $("#divNextImg").html(`<img src = "../img/${nextMovingItem.type}.png">`);
+    $("#divNextImg").html(`<img src = "/${nextMovingItem.type}.png">`);
 }
 
 
