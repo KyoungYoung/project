@@ -25,7 +25,7 @@ MongoClient.connect('mongodb+srv://admin:admin1234@cluster0.5tqish3.mongodb.net/
 })
 
 // 데이터 전송
-app.post('/add',(req,res)=>{
+app.post('/',(req,res)=>{
     db.collection('counter').findOne({name: '게시물갯수'},(err,result)=>{
         console.log(result.totalPost);
         let totalCount = result.totalPost;
@@ -35,14 +35,14 @@ app.post('/add',(req,res)=>{
             db.collection('counter').updateOne({name: '게시물갯수'},{$inc: {totalPost:1}}, (err,result)=>{
                 if(err){return console.log(err);}
             })
+            db.collection('post').find().toArray((err,result)=>{
+                result.sort((a,b)=>{ 
+                    return b.point - a.point
+                }) 
+                console.log(result);
+                res.render('Lobby.ejs',{posts : result});
+            });
         });
-    });
-    db.collection('post').find().toArray((err,result)=>{
-        result.sort((a,b)=>{ 
-            return b.point - a.point
-        }) 
-        console.log(result);
-        res.render('Lobby.ejs',{posts : result});
     });
 });
 
