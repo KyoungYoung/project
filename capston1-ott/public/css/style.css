@@ -36,14 +36,16 @@ body{
     align-items: center;
     height: auto;
     margin-left: auto;
-}
+} 
 
 .join-msg{
     color: #fff;
     text-transform: uppercase;
-}
+    /* margin-top: 30px; */
+    margin-right: 20px;
+} 
 
-.btn{
+/* .btn{
     border: 1px solid #fff;
     background: none;
     border-radius: 2px;
@@ -58,11 +60,11 @@ body{
 .join-btn{
     background: #dd0e15;
     border-color: #dd0e15;
-}
+} */
 
 .main{
     position: relative;
-    margin-top: 60px;
+    margin-top: 100px;
     width: 100%;
     padding: 40px 2.5vw;
     color: #fff;
@@ -80,8 +82,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-.search-bar input{
-    width: 600px;
+form > input{
+    width: 200px;
     height: 30px;
     font-size: 18px;
     border:none;
@@ -89,14 +91,17 @@ body{
     border-radius: 2px;
     margin-right: 10px;
 }
-.search-bar button{
-    font-size: 18px;
-    border: none;
-    background-color: skyblue;
-    width: 50px;
+form > button{
+
+    display: inline-block;
+    width: 60px;
     height: 30px;
+    font-size: 18px;
     border-radius: 15px;
-    color: #fff;
+    border: none;
+    color:#e6e6e6;
+    background: #35ce91;
+    text-align: center;
     cursor: pointer;
 }
 
@@ -114,7 +119,7 @@ body{
 }
 
 .movie-category{
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
     margin-top: 10px;
     text-transform: capitalize;
